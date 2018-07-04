@@ -22,7 +22,8 @@ class TinkerTailor {
         }
     }
 
-    void countingOutChildren() {
+    List<Integer> countingOutChildren() {
+        List<Integer> outSequence = new ArrayList<>();
         int j = childrensNumber;
         int i = 0;
         int k = 0;
@@ -31,6 +32,7 @@ class TinkerTailor {
                 k++;
             if (k == sequenceLength) {
                 System.out.println("Player " + childrens.get(i) + " is out!");
+                outSequence.add(childrens.get(i));
                 childrens.set(i, null);
                 j--;
                 k = 0;
@@ -39,6 +41,7 @@ class TinkerTailor {
             if (i == childrens.size())
                 i = 0;
         } while (j > 1);
+        return outSequence;
     }
 
     Integer getWinner() {
